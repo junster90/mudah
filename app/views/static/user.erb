@@ -1,0 +1,10 @@
+<div>
+	<h1>User profile</h1>
+	<p>Name: <%= @user.full_name %></p>
+	<p>Email: <%= @user.email %></p>
+	<p>Member since: <%= @user.created_at %></p>
+</div>
+
+<div>
+	<a href="/users/<%=@user.id%>/products"><p>Find all ads by <%= @user.full_name %>!</p>
+</div>

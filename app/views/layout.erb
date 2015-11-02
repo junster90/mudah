@@ -1,0 +1,45 @@
+<html>
+	<head>
+	</head>
+
+	<body>
+		<div id="navbar">
+			<a href="/"><h1>Mudah.my</h1></a>
+		</div>
+
+		<% if logged_in? == false %>
+			<div id="hello">
+				<a href="/hello">Join and start selling now!</a> 
+			</div>
+		<% else %>
+			<div id="userinfo">
+				<p>Logged in as: <%= current_user.full_name %></p>
+				<form method=post action=/logout>
+					<input type=submit value="Logout">
+				</form>
+			</div>
+
+			<div>
+				<a href="/users/<%=current_user.id%>">My profile</a>
+				<a href="/users/<%=current_user.id%>/wishlist"> My wishlist</a>
+			</div>
+
+		<% end %>
+
+		<% if @message %>
+			<div id="message">
+				<p><%= @message %></p>
+			</div>
+		<% end %>
+
+		<div id="new_ad">
+			<a href="/products/new">Post an ad!</a>
+		</div>
+
+		<container>
+			<%= yield %>
+		</container>
+	</body>
+
+
+</html>

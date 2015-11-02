@@ -24,6 +24,9 @@ gem 'rake'
 # Adding rspec for running unit testing
 gem 'rspec'
 
+# Adding byebug for dev help
+gem 'byebug'
+
 group :development, :test do
 	# Adding shotgun for local web hosting
 	gem 'shotgun'
@@ -35,3 +38,4 @@ group :production do
 	gem 'rails_12factor' # Heroku Gem Supports
 	gem 'puma' # Using puma for
 end
+

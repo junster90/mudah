@@ -1,0 +1,6 @@
+<div>
+	<% if current_user.id = @user.id %>
+	<h1>My wishlist!</h1>
+	<% else %>
+	<h1><%=@user.full_name%>'s wishlist!</h1>
+</div>

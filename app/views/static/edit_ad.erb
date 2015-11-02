@@ -1,0 +1,12 @@
+<div>
+	<h1>Edit your ad below and click update when complete!</h1>
+
+	<form method=post action=/products/<%=@product.id%>/update>
+		<input type=text placeholder="Item Name" name="product[name]" value="<%=@product.name%>"></br>
+		<input type=text placeholder="Description" name="product[description]" value="<%=@product.description%>"></br>
+		<input type=text placeholder="Price" name="product[price]" value="<%=@product.price%>"></br>
+		<input type=submit value="Update">
+	</form>
+
+	<p>All fields are required!</p>
+</div>

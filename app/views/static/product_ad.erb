@@ -1,0 +1,29 @@
+<div>
+	
+	<div id="iteminfo">
+		<h1>For sale: <%= @product.name %></h1>
+		<p>Description:</p>
+		<p><%= @product.description %></p>
+		<h2>Price: <%= @product.price %></h2>
+
+	</div>
+
+	<div id="sellerinfo">
+		<h1>Seller details:</h1>
+		<a href="/users/<%= @seller.id %>"><p>Name: <%= @seller.full_name %></p></a>
+		<p>Contact: <%= @seller.email %></p>
+	</div>
+
+	<% if current_user.id == @product.user_id %>
+		<div id="editinfo">
+			<h1>You may edit or delete this ad!</h1>
+			<form method=get action=/products/<%=@product.id%>/edit>
+				<input type=submit value="Edit Ad">
+			</form>
+
+			<form method=post action=/products/<%=@product.id%>/delete>
+				<input type=submit value="Delete Ad">
+			</form>
+		</div>
+	<% end %>
+</div>
