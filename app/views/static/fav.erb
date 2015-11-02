@@ -1,0 +1,13 @@
+<% if @favorites.first == nil %>
+<h1>No one has added this item to their wishlist yet.</h1>
+
+<% else %>
+<h1>These users love <%=@product.name%></h1>
+
+<ol>
+<% @favorites.each do |favorite| %>
+	<% user = User.find(favorite.user_id) %>
+	<li><a href="/users/<%=user.id%>"><p><%=user.full_name%></p></a></li>
+<% end %>
+</ol>
+<%end%>

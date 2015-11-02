@@ -1,0 +1,45 @@
+html * {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+
+}
+
+#maincon {
+	width: 800px;
+	margin: 0 auto;
+}
+
+#cp {
+	width: 800px;
+	text-align: right;
+	margin: 0 auto;
+}
+
+#addingform {
+	width: 600px;
+	margin: 0 auto;
+}
+
+#userform {
+	width: 600px;
+	margin: 0 auto;
+}
+
+#new_ad {
+	text-align: right;
+}
+
+#userinfo {
+	text-align: right;
+}
+
+ul	{
+    list-style-type: none;
+}
+
+ul li {
+	display: inline;
+}
+
+p	{
+	font-size: 18px;
+}

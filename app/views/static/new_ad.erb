@@ -1,10 +1,10 @@
-<div>
+<div id="addingform">
 	<h1>Post a new ad!</h1>
 
 	<form method=post action=/products/new>
-		<input type=text placeholder="Item Name" name="product[name]"></br>
-		<input type=text placeholder="Description" name="product[description]"></br>
-		<input type=text placeholder="Price" name="product[price]"></br>
+		<input type=text class="form-control" placeholder="Item Name" name="product[name]"></br>
+		<textarea class="form-control" rows="5" type=text placeholder="Description" name="product[description]"></textarea></br>
+		<input type=text class="form-control" placeholder="Price" name="product[price]"></br>
 		<input type=submit value="Post Ad">
 	</form>
 

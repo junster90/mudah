@@ -7,6 +7,7 @@
 				<a href="/products/<%=product.id%>"><h2><%= product.name %></h2></a>
 				<h2>RM <%= product.price %></h2>
 				<p>Listed on: <%= product.created_at %></p>
+				<a href="/favorites/<%=product.id%>">Find out who favorited this product!</a>
 			</div>
 		<% end %>
 	</div>

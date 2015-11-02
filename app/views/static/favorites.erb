@@ -18,7 +18,7 @@
 			<%if logged_in? %>
 				<% if current_user.id == favorite.user_id %>
 					<form method=post action=/users/<%=current_user.id%>/wishlist/delete/<%=@product.id%>>
-						<input type=submit value="Remove from wishlist">
+						<input class="btn btn-default" type=submit value="Remove from wishlist">
 					</form>
 				<% end %>
 			<% end %>

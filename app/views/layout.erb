@@ -1,27 +1,34 @@
 <html>
 	<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/css/application.css">
 	</head>
 
 	<body>
-		<div id="navbar">
+	<container>
+	<div id="maincon">
+		<div id="logo">
 			<a href="/"><h1>Mudah.my</h1></a>
 		</div>
 
 		<% if logged_in? == false %>
 			<div id="hello">
-				<a href="/hello">Join and start selling now!</a> 
+				<a class="btn btn-default" href="/hello">Join and start selling now!</a> 
 			</div>
 		<% else %>
 			<div id="userinfo">
 				<p>Logged in as: <%= current_user.full_name %></p>
-				<form method=post action=/logout>
-					<input type=submit value="Logout">
-				</form>
 			</div>
 
-			<div>
-				<a href="/users/<%=current_user.id%>">My profile</a>
-				<a href="/users/<%=current_user.id%>/wishlist"> My wishlist</a>
+			<div id="cp">
+				<ul>
+				<li><form method=post action=/logout>
+					<input class="btn btn-default" type=submit value="Logout">
+				</form></li>
+				<li><a class="btn btn-default" href="/users/<%=current_user.id%>" role="button">My profile</a></li>
+				<li><a class="btn btn-default" href="/users/<%=current_user.id%>/wishlist" role="button"> My wishlist</a></li>
+				</ul>
 			</div>
 
 		<% end %>
@@ -33,11 +40,13 @@
 		<% end %>
 
 		<div id="new_ad">
-			<a href="/products/new">Post an ad!</a>
+			<a class="btn btn-default" href="/products/new" role="button">Post an ad!</a>
 		</div>
 
-		<container>
+		
 			<%= yield %>
+
+		</div>
 		</container>
 	</body>
 

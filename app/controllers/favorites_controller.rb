@@ -22,3 +22,12 @@ post '/users/:user_id/wishlist/delete/:product_id' do |user_id, product_id|
 
 	redirect "/users/#{user_id}/wishlist"
 end
+
+get '/favorites/:id' do |product_id|
+	@product = Product.find(product_id)
+
+	@favorites = Favorite.where(product_id: product_id).reverse
+
+
+	erb :"static/fav"
+end

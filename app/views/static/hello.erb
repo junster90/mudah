@@ -1,14 +1,18 @@
+
+<div id="userform">
 <h2>New with us? Sign up for an account!</h2>
 	<form method=post action=/signup>
-		<input type=text placeholder="Full name" name="user[full_name]"></br>
-		<input type=text placeholder="Email" name="user[email]"></br>
-		<input type=password placeholder="Password" name="user[password]"></br>
-		<input type=submit value="Sign up">
+		<input class="form-control" type=text placeholder="Full name" name="user[full_name]"></br>
+		<input class="form-control" type=text placeholder="Email" name="user[email]"></br>
+		<input class="form-control" type=password placeholder="Password: must be at between 6 to 20 characters long." name="user[password]"></br>
+		<input class="form-control btn btn-default" type=submit value="Sign up">
 	</form>
 
 <h2>Existing user? Login now!</h2>
 	<form method=post action=/login>
-		<input type=text placeholder="Email" name="user[email]"></br>
-		<input type=password placeholder="Password" name="user[password]"></br>
-		<input type=submit value="Login">
+		<input class="form-control" type=text placeholder="Email" name="user[email]"></br>
+		<input class="form-control" type=password placeholder="Password" name="user[password]"></br>
+		<input class="form-control btn btn-default" type=submit value="Login">
 	</form>
+
+</div>
