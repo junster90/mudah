@@ -16,7 +16,10 @@
 
 	<% if logged_in? %>
 		<% if current_user.id == @product.user_id %>
+
 			<div id="editinfo">
+				<a href="/favorites/<%=@product.id%>">Find out who favorited this product!</a>
+			
 				<h1>You may edit or delete this ad!</h1>
 				<form method=get action=/products/<%=@product.id%>/edit>
 					<input class="btn btn-default" type=submit value="Edit Ad">

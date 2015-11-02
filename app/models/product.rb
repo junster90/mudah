@@ -3,4 +3,5 @@ class Product < ActiveRecord::Base
 	validates :name, :description, :price, :user_id, presence: true
 
 	belongs_to :user
+	has_many :favorites
 end

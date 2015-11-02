@@ -2,7 +2,7 @@ require 'byebug'
 
 get '/users/:id/wishlist' do |id|
 	@user = User.find(id)
-	@favorites = Favorite.where(user_id: id)
+	@favorites = @user.favorites
 	erb :"/static/favorites"
 end
 
@@ -16,18 +16,21 @@ end
 
 post '/users/:user_id/wishlist/delete/:product_id' do |user_id, product_id|
 
-	favorite = Favorite.where(user_id: user_id, product_id: product_id)
+	if current_user.id == user_id.to_i
+		favorite = Favorite.where(user_id: user_id, product_id: product_id)
 
-	favorite.first.destroy
+		favorite.first.destroy
 
-	redirect "/users/#{user_id}/wishlist"
+		redirect "/users/#{user_id}/wishlist"
+	else
+		@message = "Not the right user!"
+	end
 end
 
 get '/favorites/:id' do |product_id|
 	@product = Product.find(product_id)
 
-	@favorites = Favorite.where(product_id: product_id).reverse
-
+	@favorites = @product.favorites.reverse
 
 	erb :"static/fav"
 end

@@ -6,7 +6,7 @@
 
 <ol>
 <% @favorites.each do |favorite| %>
-	<% user = User.find(favorite.user_id) %>
+	<% user = favorite.user %>
 	<li><a href="/users/<%=user.id%>"><p><%=user.full_name%></p></a></li>
 <% end %>
 </ol>
