@@ -11,7 +11,7 @@ post '/signup' do
 	else
 		@message = "There was a problem while signing up. Please check your details and try again. Passwords must be between 6 - 20 characters long."
 	end
-	erb :"static/index"
+	redirect '/'
 end
 
 post '/login' do

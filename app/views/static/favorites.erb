@@ -1,6 +1,27 @@
 <div>
-	<% if current_user.id = @user.id %>
-	<h1>My wishlist!</h1>
+	<%if logged_in? %>
+		<% if current_user.id == @user.id %>
+			<h1>My wishlist!</h1>
+		<% else %>
+			<h1><%=@user.full_name%>'s wishlist!</h1>
+		<% end %>
 	<% else %>
-	<h1><%=@user.full_name%>'s wishlist!</h1>
+		<h1><%=@user.full_name%>'s wishlist!</h1>
+	<% end %>
+
+	<% if @favorites.first == nil %>
+		<p>Nothing in the wishlist yet!</p>
+	<% else %>
+		<% @favorites.each do |favorite| %>
+			<% @product = Product.find(favorite.product_id) %>
+			<a href="/products/<%=@product.id%>"><h3><%= @product.name %></h3></a>
+			<%if logged_in? %>
+				<% if current_user.id == favorite.user_id %>
+					<form method=post action=/users/<%=current_user.id%>/wishlist/delete/<%=@product.id%>>
+						<input type=submit value="Remove from wishlist">
+					</form>
+				<% end %>
+			<% end %>
+		<% end %>
+	<% end %>
 </div>

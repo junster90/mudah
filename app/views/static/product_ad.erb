@@ -14,16 +14,34 @@
 		<p>Contact: <%= @seller.email %></p>
 	</div>
 
-	<% if current_user.id == @product.user_id %>
-		<div id="editinfo">
-			<h1>You may edit or delete this ad!</h1>
-			<form method=get action=/products/<%=@product.id%>/edit>
-				<input type=submit value="Edit Ad">
-			</form>
+	<% if logged_in? %>
+		<% if current_user.id == @product.user_id %>
+			<div id="editinfo">
+				<h1>You may edit or delete this ad!</h1>
+				<form method=get action=/products/<%=@product.id%>/edit>
+					<input type=submit value="Edit Ad">
+				</form>
 
-			<form method=post action=/products/<%=@product.id%>/delete>
-				<input type=submit value="Delete Ad">
-			</form>
-		</div>
+				<form method=post action=/products/<%=@product.id%>/delete>
+					<input type=submit value="Delete Ad">
+				</form>
+			</div>
+
+		<% else %>
+			<div id="add-wishlist">
+
+				<% if favorited?(@product.id) %>
+					<p>This product is in your wishlist! </p>
+					<form method=post action=/users/<%=current_user.id%>/wishlist/delete/<%=@product.id%>>
+						<input type=submit value="Remove from wishlist">
+					</form>
+				<% else %>
+					<h1>Add this product to your wishlist!</h1>
+					<form method=post action=/users/<%=current_user.id%>/wishlist/add/<%=@product.id%>>
+						<input type=submit value="Add to wishlist!">
+					</form>
+				<% end %>
+			</div>
+		<% end %>
 	<% end %>
 </div>
