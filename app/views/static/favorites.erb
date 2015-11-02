@@ -12,7 +12,7 @@
 	<% if @favorites.first == nil %>
 		<p>Nothing in the wishlist yet!</p>
 	<% else %>
-		<% @favorites.each do |favorite| %>
+		<% @favorites.reverse.each do |favorite| %>
 			<% @product = Product.find(favorite.product_id) %>
 			<a href="/products/<%=@product.id%>"><h3><%= @product.name %></h3></a>
 			<%if logged_in? %>
